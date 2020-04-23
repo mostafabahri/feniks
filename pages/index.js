@@ -1,9 +1,10 @@
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
+import Header from "../components/header";
 
 export default function Index() {
   return (
     <Layout>
-      <h2>Feniks</h2>
+      <Header></Header>
     </Layout>
   );
 }
