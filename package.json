@@ -27,7 +27,7 @@
     "react-spring": "^8.0.27",
     "shortid": "^2.2.15",
     "styled-components": "^5.0.1",
-    "tailwindcss": "^1.2.0",
+    "tailwindcss": "^1.4.4",
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {}
