@@ -8,16 +8,18 @@ export default function Campaign({ campaign }) {
     <Container>
       <div className="font-medium text-black-russian border-solitude flex">
         <div className="md:w-2/3 border-r pr-10">
-          <div className="transform -translate-y-4 border-b pb-6">
+          <div className="transform -trrnslate-y-4 border-b pb-6">
             <BrandIntro brand={brand} />
           </div>
         </div>
-        {/* <div className="flex justify-center flex-grow">
+        <div className="flex justify-center flex-grow">
           <div className="shadow-md rounded-md px-12 py-5 text-center">
             <h3>Frequent Flyer</h3>
-            <Button theme="tomato">Become a donor</Button>
+            <Button theme="tomato" onClick={() => alert("yooooooooo")}>
+              Become a donor
+            </Button>
           </div>
-        </div> */}
+        </div>
       </div>
     </Container>
   );
@@ -31,9 +33,7 @@ function BrandIntro({ brand }) {
         <h1 className="text-2xl font-semibold">{brand.name}</h1>
         <h2 className="text-storm-grey text-sm">{brand.promo}</h2>
       </div>
-      <div className="text-sm">
-        <Button theme="snow">Follow</Button>
-      </div>
+      <Button theme="snow">Follow</Button>
     </div>
   );
 }

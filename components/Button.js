@@ -1,11 +1,13 @@
 import classnames from "classnames";
-function BaseButton({ children, className }) {
+function BaseButton({ children, className, css, ...rest }) {
   return (
     <button
       className={classnames({
-        "px-8 py-3 rounded-full font-bold": true,
+        "px-8 py-3 rounded-full font-bold text-sm": true,
         [className]: true,
+        [css]: css,
       })}
+      {...rest}
     >
       {children}
     </button>
