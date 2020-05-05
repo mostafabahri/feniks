@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "./Button";
 import { Container } from "./Container";
+import { Sidebar } from "./Sidebar";
 
 export default function Campaign({ campaign }) {
   const brand = campaign.brand;
@@ -8,33 +9,35 @@ export default function Campaign({ campaign }) {
     <Container>
       <div className="font-medium text-black-russian border-solitude flex">
         <div className="md:w-2/3 border-r pr-10">
-          <div className="transform -translate-y-4 border-b pb-6">
+          <div className="transform sm:-translate-y-4 border-b pb-6">
             <BrandIntro brand={brand} />
           </div>
+          <Stats stats={campaign.stats} />
         </div>
-        <div className="flex flex-grow justify-center mt-10">
-          <div className="md:w-3/4 space-y-6">
-            <DonorCard donation={{ title: "Frequent Flyer", usd: 8 }} />
-            <DonorCard donation={{ title: "Quite a Fan", usd: 25 }} />
-          </div>
+        <div className="flex flex-grow mt-10 justify-center">
+          <Sidebar />
         </div>
       </div>
     </Container>
   );
 }
-
-function DonorCard({ donation }) {
+function Stats({ stats }) {
   return (
-    <div className="flex flex-col shadow-md rounded-md py-5 text-center">
-      <h3 className="g-bold text-lg py-4 border-b">{donation.title}</h3>
-      <div className="py-8">
-        <div className="amount text-3xl g-bold ">${donation.usd}</div>
-        <div className="text-storm-grey text-xs ">Per month</div>
+    <div className="flex justify-between">
+      <div className="space-y-1">
+        <img src={stats.donors.icon} alt="" className="w-8" />
+        <div className="text-storm-grey text-sm">Donors:</div>
+        <div className="g-bold">{stats.donors.count}</div>
       </div>
-      <div className="px-8">
-        <Button theme="tomato" css="w-full">
-          Become a donor
-        </Button>
+      <div className="space-y-1">
+        <img src={stats.per_month.icon} alt="" className="w-8" />
+        <div className="text-storm-grey text-sm">Per Month:</div>
+        <div className="g-bold">${stats.per_month.usd}</div>
+      </div>
+      <div className="space-y-1">
+        <img src={stats.total_raised.icon} alt="" className="w-8" />
+        <div className="text-storm-grey text-sm">Raised Total:</div>
+        <div className="g-bold">${stats.total_raised.usd}</div>
       </div>
     </div>
   );

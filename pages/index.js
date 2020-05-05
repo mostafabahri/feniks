@@ -6,7 +6,7 @@ import Campaign from "../components/Campaign";
 export default function Index() {
   const campaign = {
     brand: {
-      name: "Wendy's cake",
+      name: "Wendy's Cakes",
       promo:
         "Classic American baked goods, vintage decor and warm, inviting atmosphere",
       logo: {
@@ -24,12 +24,15 @@ export default function Index() {
     },
     stats: {
       donors: {
+        icon: "/donors.png",
         count: 271,
       },
       per_month: {
+        icon: "/per-month.png",
         usd: 3490,
       },
       total_raised: {
+        icon: "/total-raised.png",
         usd: 29520,
       },
       expiry: "2020-06-13",
