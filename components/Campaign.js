@@ -8,20 +8,35 @@ export default function Campaign({ campaign }) {
     <Container>
       <div className="font-medium text-black-russian border-solitude flex">
         <div className="md:w-2/3 border-r pr-10">
-          <div className="transform -trrnslate-y-4 border-b pb-6">
+          <div className="transform -translate-y-4 border-b pb-6">
             <BrandIntro brand={brand} />
           </div>
         </div>
-        <div className="flex justify-center flex-grow">
-          <div className="shadow-md rounded-md px-12 py-5 text-center">
-            <h3>Frequent Flyer</h3>
-            <Button theme="tomato" onClick={() => alert("yooooooooo")}>
-              Become a donor
-            </Button>
+        <div className="flex flex-grow justify-center mt-10">
+          <div className="md:w-3/4 space-y-6">
+            <DonorCard donation={{ title: "Frequent Flyer", usd: 8 }} />
+            <DonorCard donation={{ title: "Quite a Fan", usd: 25 }} />
           </div>
         </div>
       </div>
     </Container>
+  );
+}
+
+function DonorCard({ donation }) {
+  return (
+    <div className="flex flex-col shadow-md rounded-md py-5 text-center">
+      <h3 className="g-bold text-lg py-4 border-b">{donation.title}</h3>
+      <div className="py-8">
+        <div className="amount text-3xl g-bold ">${donation.usd}</div>
+        <div className="text-storm-grey text-xs ">Per month</div>
+      </div>
+      <div className="px-8">
+        <Button theme="tomato" css="w-full">
+          Become a donor
+        </Button>
+      </div>
+    </div>
   );
 }
 
