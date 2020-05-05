@@ -3,7 +3,7 @@ function BaseButton({ children, className }) {
   return (
     <button
       className={classnames({
-        "px-6 py-2 rounded-full": true,
+        "px-8 py-3 rounded-full font-bold": true,
         [className]: true,
       })}
     >

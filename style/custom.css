@@ -17,6 +17,11 @@
 .g-bold {
   @apply font-semibold;
 }
+
 button {
   font-weight: inherit;
+}
+
+.rounded-xl {
+  border-radius: 1.6rem;
 }
