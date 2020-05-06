@@ -25,3 +25,7 @@ button {
 .rounded-xl {
   border-radius: 1.8rem;
 }
+
+.text-second {
+  @apply text-storm-grey text-sm;
+}

@@ -39,7 +39,7 @@ function StatsItem({ icon, title, text }) {
   return (
     <div>
       <img src={icon} alt="icon" className="w-8 mb-3" />
-      <div className="text-storm-grey text-sm mb-1">{title}:</div>
+      <div className="text-second mb-1">{title}:</div>
       <div className="g-bold">{text}</div>
     </div>
   );

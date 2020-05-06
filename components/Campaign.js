@@ -1,9 +1,12 @@
 import React from "react";
-import { Button } from "./Button";
 import { Container } from "./Container";
 import { Sidebar } from "./Sidebar";
 import { Stats } from "./Stats";
+import { BrandIntro } from "./BrandIntro";
 
+function SectionTitle({ children }) {
+  return <h3 className="text-xl g-bold">{children}</h3>;
+}
 export default function Campaign({ campaign }) {
   const brand = campaign.brand;
   return (
@@ -16,18 +19,18 @@ export default function Campaign({ campaign }) {
           <section className="py-10 border-t border-b">
             <Stats stats={campaign.stats} />
           </section>
-          <section className="py-10 flex space-x-6">
-            <div className="w-7/12 md:w-full">
-              <h3>About</h3>
-              <p>{brand.description}</p>
+          <section className="py-10 grid md:grid-cols-7 gap-6">
+            <div className="md:col-span-4 space-y-4">
+              <SectionTitle>About</SectionTitle>
+              <p className="text-second">{brand.description}</p>
               {/* <div className="grid grid-cols-3 w-full">
                 <img src={brand.logo.url} alt="" />
                 <img src={brand.logo.url} alt="" />
                 <img src={brand.logo.url} alt="" />
               </div> */}
             </div>
-            <div className="w-5/12">
-              <h3>Business Details</h3>
+            <div className="md:col-span-3">
+              <SectionTitle>Business Details</SectionTitle>
               <div>{brand.address}</div>
               <div>{brand.tel}</div>
               <div>
@@ -42,18 +45,5 @@ export default function Campaign({ campaign }) {
         </div>
       </div>
     </Container>
-  );
-}
-
-function BrandIntro({ brand }) {
-  return (
-    <div className="flex items-center justify-between">
-      <img src={brand.logo.url} className="w-32 bg-white rounded-xl p-1"></img>
-      <div className="mx-4">
-        <h1 className="text-2xl g-bold">{brand.name}</h1>
-        <h2 className="text-storm-grey text-sm">{brand.promo}</h2>
-      </div>
-      <Button theme="snow">Follow</Button>
-    </div>
   );
 }
