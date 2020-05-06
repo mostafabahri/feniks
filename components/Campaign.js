@@ -9,10 +9,12 @@ export default function Campaign({ campaign }) {
     <Container>
       <div className="font-medium text-black-russian border-solitude flex">
         <div className="md:w-2/3 border-r pr-10">
-          <div className="transform sm:-translate-y-4 border-b pb-6">
+          <div className="transform sm:-translate-y-4  pb-4">
             <BrandIntro brand={brand} />
           </div>
-          <Stats stats={campaign.stats} />
+          <div class="py-10 border-t border-b">
+            <Stats stats={campaign.stats} />
+          </div>
         </div>
         <div className="flex flex-grow mt-10 justify-center">
           <Sidebar />
@@ -22,23 +24,47 @@ export default function Campaign({ campaign }) {
   );
 }
 function Stats({ stats }) {
+  const items = [
+    {
+      icon: stats.donors.icon,
+      title: "Donors",
+      text: stats.donors.count,
+    },
+    {
+      icon: stats.per_month.icon,
+      title: "Per Month",
+      text: `$${stats.per_month.usd}`,
+    },
+    {
+      icon: stats.total_raised.icon,
+      title: "Raised Total",
+      text: `$${stats.total_raised.usd}`,
+    },
+    {
+      icon: stats.expiry.icon,
+      title: "Expires",
+      text: stats.expiry.date,
+    },
+  ];
+  function StatsItem({ icon, title, text }) {
+    return (
+      <div>
+        <img src={icon} alt="icon" className="w-8 mb-3" />
+        <div className="text-storm-grey text-sm mb-1">{title}:</div>
+        <div className="g-bold">{text}</div>
+      </div>
+    );
+  }
   return (
-    <div className="flex justify-between">
-      <div className="space-y-1">
-        <img src={stats.donors.icon} alt="" className="w-8" />
-        <div className="text-storm-grey text-sm">Donors:</div>
-        <div className="g-bold">{stats.donors.count}</div>
-      </div>
-      <div className="space-y-1">
-        <img src={stats.per_month.icon} alt="" className="w-8" />
-        <div className="text-storm-grey text-sm">Per Month:</div>
-        <div className="g-bold">${stats.per_month.usd}</div>
-      </div>
-      <div className="space-y-1">
-        <img src={stats.total_raised.icon} alt="" className="w-8" />
-        <div className="text-storm-grey text-sm">Raised Total:</div>
-        <div className="g-bold">${stats.total_raised.usd}</div>
-      </div>
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {items.map((item) => (
+        <StatsItem
+          key={item.title}
+          icon={item.icon}
+          title={item.title}
+          text={item.text}
+        />
+      ))}
     </div>
   );
 }

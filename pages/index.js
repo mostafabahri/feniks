@@ -10,7 +10,8 @@ export default function Index() {
       promo:
         "Classic American baked goods, vintage decor and warm, inviting atmosphere",
       logo: {
-        url: "https://i.picsum.photos/id/350/200/200.jpg",
+        url:
+          "https://images.unsplash.com/photo-1560180474-e8563fd75bab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&fit=crop&w=200&h=200&q=70&bri=-16&con=20&auto=compress",
       },
       hero: {
         url:
@@ -29,13 +30,16 @@ export default function Index() {
       },
       per_month: {
         icon: "/per-month.png",
-        usd: 3490,
+        usd: "3,490",
       },
       total_raised: {
         icon: "/total-raised.png",
-        usd: 29520,
+        usd: "29,520",
       },
-      expiry: "2020-06-13",
+      expiry: {
+        icon: "/date.png",
+        date: "June 13, 2020",
+      },
     },
   };
 
