@@ -7,8 +7,8 @@ export default function Campaign({ campaign }) {
   const brand = campaign.brand;
   return (
     <Container>
-      <div className="font-medium text-black-russian border-solitude flex">
-        <div className="md:w-2/3 border-r pr-10">
+      <div className="font-medium text-black-russian border-solitude flex flex-wrap">
+        <div className="md:w-2/3 md:border-r pr-10">
           <div className="transform sm:-translate-y-4  pb-4">
             <BrandIntro brand={brand} />
           </div>
