@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "./Button";
 import { Container } from "./Container";
 import { Sidebar } from "./Sidebar";
+import { Stats } from "./Stats";
 
 export default function Campaign({ campaign }) {
   const brand = campaign.brand;
@@ -9,12 +10,32 @@ export default function Campaign({ campaign }) {
     <Container>
       <div className="font-medium text-black-russian border-solitude flex flex-wrap">
         <div className="md:w-2/3 md:border-r pr-10">
-          <div className="transform sm:-translate-y-4  pb-4">
+          <section className="transform sm:-translate-y-4  pb-4 -ml-1">
             <BrandIntro brand={brand} />
-          </div>
-          <div class="py-10 border-t border-b">
+          </section>
+          <section className="py-10 border-t border-b">
             <Stats stats={campaign.stats} />
-          </div>
+          </section>
+          <section className="py-10 flex space-x-6">
+            <div className="w-7/12 md:w-full">
+              <h3>About</h3>
+              <p>{brand.description}</p>
+              {/* <div className="grid grid-cols-3 w-full">
+                <img src={brand.logo.url} alt="" />
+                <img src={brand.logo.url} alt="" />
+                <img src={brand.logo.url} alt="" />
+              </div> */}
+            </div>
+            <div className="w-5/12">
+              <h3>Business Details</h3>
+              <div>{brand.address}</div>
+              <div>{brand.tel}</div>
+              <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+                deserunt dolorem temporibus nemo possimus suscipit accusamus
+              </div>
+            </div>
+          </section>
         </div>
         <div className="flex flex-grow mt-10 justify-center">
           <Sidebar />
@@ -23,58 +44,13 @@ export default function Campaign({ campaign }) {
     </Container>
   );
 }
-function Stats({ stats }) {
-  const items = [
-    {
-      icon: stats.donors.icon,
-      title: "Donors",
-      text: stats.donors.count,
-    },
-    {
-      icon: stats.per_month.icon,
-      title: "Per Month",
-      text: `$${stats.per_month.usd}`,
-    },
-    {
-      icon: stats.total_raised.icon,
-      title: "Raised Total",
-      text: `$${stats.total_raised.usd}`,
-    },
-    {
-      icon: stats.expiry.icon,
-      title: "Expires",
-      text: stats.expiry.date,
-    },
-  ];
-  function StatsItem({ icon, title, text }) {
-    return (
-      <div>
-        <img src={icon} alt="icon" className="w-8 mb-3" />
-        <div className="text-storm-grey text-sm mb-1">{title}:</div>
-        <div className="g-bold">{text}</div>
-      </div>
-    );
-  }
-  return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      {items.map((item) => (
-        <StatsItem
-          key={item.title}
-          icon={item.icon}
-          title={item.title}
-          text={item.text}
-        />
-      ))}
-    </div>
-  );
-}
 
 function BrandIntro({ brand }) {
   return (
     <div className="flex items-center justify-between">
       <img src={brand.logo.url} className="w-32 bg-white rounded-xl p-1"></img>
       <div className="mx-4">
-        <h1 className="text-2xl font-semibold">{brand.name}</h1>
+        <h1 className="text-2xl g-bold">{brand.name}</h1>
         <h2 className="text-storm-grey text-sm">{brand.promo}</h2>
       </div>
       <Button theme="snow">Follow</Button>
