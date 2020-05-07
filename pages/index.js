@@ -21,7 +21,7 @@ export default function Index() {
         "In a professional context it often happens that private or corporate clients corder a publication to be made and presented with the actual content still not being ready. Think of a news blog that's filled with content hourly on the day of going live.",
       address: "28 Avenue, NYC",
       tel: "+1 212-498-9810",
-      location: [40.668511, -73.938515],
+      location: [40.7331, -73.998239],
     },
     stats: {
       donors: {
